@@ -1,5 +1,5 @@
 // sketch.js
-const density = ' .:░▒▓█'
+const density = ' .:░▒▓█';
 
 let video;
 let asciiPre;
@@ -12,6 +12,8 @@ function setup() {
 }
 
 function draw() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const colorParam = urlParams.get('color');
   video.loadPixels();
   let asciiImage = "";
   for (let j = 0; j < video.height; j++) {
@@ -27,7 +29,7 @@ function draw() {
       if (c == " ") {
         asciiImage += "<span style='color: black'>&nbsp;</span>"; // Cambia el color de los espacios en blanco a negro
       } else {
-        asciiImage += "<span style='color: red'>" + c + "</span>"; // Cambia el color de los caracteres a blanco
+        asciiImage += `<span style="color: ${colorParam}">${c}</span>`;
       }
     }
     asciiImage += '\n';

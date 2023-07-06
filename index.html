@@ -3,14 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <style>
-    .ascii-grid {
-  font-family: monospace;
-  background-color: black; /* Cambia el color de fondo a negro */
-  white-space: pre;
-}
+      .ascii-grid {
+    font-family: monospace;
+    background-color: black; /* Cambia el color de fondo a negro */
+    white-space: pre;
+    }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
   <script src="sketch.js"></script>
+  <script>
+    const socket = io('https://ascii-cam--conurfloki.repl.co/change-color');
+
+    socket.on('color', color => {
+    console.log('Se recibió un nuevo color:', color);
+    });
+  </script>
 </head>
 <body>
   <pre class="ascii-grid"></pre>
