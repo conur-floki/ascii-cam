@@ -8,6 +8,7 @@ function setup() {
   noCanvas();
   video = createCapture(VIDEO);
   video.size(128, 48);
+  video.style('display', 'none');
   asciiPre = select('.ascii-grid'); 
 }
 
@@ -29,7 +30,7 @@ function draw() {
       if (c == " ") {
         asciiImage += "<span style='color: black'>&nbsp;</span>"; // Cambia el color de los espacios en blanco a negro
       } else {
-        asciiImage += `<span style="color: ${colorParam}">${c}</span>`;
+        asciiImage += `<span style="color: red">${c}</span>`;
       }
     }
     asciiImage += '\n';
